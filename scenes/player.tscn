@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbifkwg6gl4qx"]
+
+[ext_resource type="Texture2D" uid="uid://dphvhbsft51au" path="res://assets/textures/character/Skin2Idle.png" id="1_mcotd"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -147)
+texture = ExtResource("1_mcotd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
