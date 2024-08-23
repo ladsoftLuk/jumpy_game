@@ -1,91 +1,91 @@
 [gd_scene load_steps=9 format=3 uid="uid://cbifkwg6gl4qx"]
 
-[ext_resource type="Texture2D" uid="uid://dphvhbsft51au" path="res://assets/textures/character/Skin2Idle.png" id="1_mcotd"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n6mau"]
-[ext_resource type="Texture2D" uid="uid://dq6w2rnxvhlg0" path="res://assets/textures/character/Skin2Jump.png" id="2_w6qja"]
+[ext_resource type="Texture2D" uid="uid://cntsw6wl5ybtm" path="res://assets/textures/character/Skin3Idle.png" id="3_lt66y"]
+[ext_resource type="Texture2D" uid="uid://cgwtcpknmkwya" path="res://assets/textures/character/Skin3Jump.png" id="4_put1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u20ij"]
-size = Vector2(47, 20)
+size = Vector2(86, 20)
 
-[sub_resource type="Animation" id="Animation_iqpb0"]
+[sub_resource type="Animation" id="Animation_jd1em"]
 resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_mcotd")]
+"update": 0,
+"values": [Vector2(0.35, 0.35)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, -51)]
+"update": 1,
+"values": [ExtResource("3_lt66y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/path = NodePath("Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.35, 0.35)]
+"values": [Vector2(-1, -66)]
 }
 
-[sub_resource type="Animation" id="Animation_bhp4t"]
+[sub_resource type="Animation" id="Animation_fj5fa"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_mcotd")]
+"update": 0,
+"values": [Vector2(0.35, 0.35)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, -51)]
+"update": 1,
+"values": [ExtResource("3_lt66y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/path = NodePath("Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.35, 0.35)]
+"values": [Vector2(-1, -66)]
 }
 
-[sub_resource type="Animation" id="Animation_vp6u3"]
+[sub_resource type="Animation" id="Animation_njcf4"]
 resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -97,7 +97,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_w6qja")]
+"values": [ExtResource("4_put1p")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -109,7 +109,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, -49)]
+"values": [Vector2(-1, -66)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -124,11 +124,11 @@ tracks/2/keys = {
 "values": [Vector2(0.35, 0.35)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_28u2y"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pjqh"]
 _data = {
-"RESET": SubResource("Animation_bhp4t"),
-"fall": SubResource("Animation_iqpb0"),
-"jump": SubResource("Animation_vp6u3")
+"RESET": SubResource("Animation_fj5fa"),
+"fall": SubResource("Animation_jd1em"),
+"jump": SubResource("Animation_njcf4")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -137,15 +137,15 @@ script = ExtResource("1_n6mau")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1100
-position = Vector2(-2, -51)
+position = Vector2(-1, -66)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_mcotd")
+texture = ExtResource("3_lt66y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -10)
+position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_u20ij")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_28u2y")
+"": SubResource("AnimationLibrary_4pjqh")
 }

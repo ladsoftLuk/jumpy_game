@@ -1,9 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var animator = $AnimationPlayer
+
 var speed = 300.0
 @export var gravity = 15
 var max_fall_velocity = 1000
+var jump_velocity = -800
 var viewport_size
 
 func _ready():
@@ -11,7 +14,12 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	if velocity.y > 0:
+		if animator.current_animation != "fall":
+			animator.play("fall")
+	elif velocity.y < 0:
+		if animator.current_animation != "jump":
+			animator.play("jump")
 
 func _physics_process(delta):
 	if velocity.y < max_fall_velocity:
@@ -31,3 +39,7 @@ func _physics_process(delta):
 		
 	if global_position.x < -margin:
 		global_position.x = viewport_size.x + margin
+
+func jump():
+	if velocity.y > 0:
+		velocity.y = jump_velocity

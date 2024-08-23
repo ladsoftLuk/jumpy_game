@@ -1,4 +1,5 @@
 extends Area2D
+class_name Platform
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,5 +14,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
-		body.velocity.y = 0;
-		body.gravity = 0;
+		body.jump()
